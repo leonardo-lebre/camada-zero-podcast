@@ -1,0 +1,294 @@
+1) Visão geral do pipeline (resumido)
+
+Curadoria & Input → adicionar fontes (PDFs, links, RSS) no NotebookLM.
+
+NotebookLM → gera roteiro estruturado (formato: diálogo entre 2 pessoas), sugestões de cenas para vídeo e imagens.
+
+Geração de voz → ElevenLabs (ou Play.ht) para narração natural baseada no roteiro.
+
+Geração de vídeo → Pika Labs / Runway / Synthesia para criar o vídeo com cenas sugeridas e avatar (opcional).
+
+Geração de imagens → Midjourney / Leonardo / Stable Diffusion para logo, thumbnails e imagens de apoio.
+
+Edição e mixagem → Descript (edição por texto) + CapCut/Audacity (ajustes finais).
+
+Publicação → Renderizar MP4 (vídeo) e MP3 (áudio) + publicar (YouTube, Spotify, Apple, redes sociais).
+
+2) Fontes confiáveis para adicionar ao NotebookLM (sempre cite-as e importe como fonte)
+
+Use essas fontes como base para pesquisa automática e resumo no NotebookLM:
+
+CISA — avisos e catálogo de vulnerabilidades. 
+CISA
++1
+
+The Hacker News — reportagens técnicas e exploits emergentes. 
+The Hacker News
++1
+
+Reuters / agências (para incidentes globais grandes). 
+Reuters
+
+Verizon DBIR (relatórios anuais e dados estatísticos). 
+Verizon
+
+Relatórios de empresas de threat intel (Mandiant/Google TAG/GTIG, Cyfirma, Hornetsecurity). 
+CYFIRMA
++1
+
+Feed de Alertas ICS/OT (WaterISAC / CISA ICS advisories). 
+WaterISAC
++1
+
+Use esses links como “fontes mestre” no NotebookLM: ele pode ler PDFs, páginas e relatórios para sintetizar.
+
+3) Notícias relevantes (exemplos atuais — inclua sempre no episódio como “atualização”)
+
+(Use estes itens como bloco “notícias do dia” no roteiro. Citei fontes publicadas recentemente.)
+
+Exploração zero-day em Oracle E-Business Suite explorada por grupos ligados ao CL0P. 
+The Hacker News
++1
+
+CISA adicionando várias vulnerabilidades conhecidas ao catálogo (atenção a patches). 
+CISA
+
+Grupo “Qilin” declarou ataque à Asahi Group (impacto operacional em fábricas). 
+Reuters
+
+Expiração de lei importante dos EUA (CISA act) e implicações na troca de threat intel. 
+World Economic Forum
+
+Relatórios semanais/feeds (H-ISAC, DBIR, Hornetsecurity) com tendências e novos ransomwares (ex.: White Lock). 
+CYFIRMA
++1
+
+Como usar: no NotebookLM, adicione essas notícias/fonte e peça um resumo curto (2–3 frases) para entrar no segmento “Notícias” do episódio.
+
+4) Prompt base para NotebookLM — ROTEIRO (formato: conversa entre 2 pessoas)
+
+Cole no NotebookLM. Substitua variáveis entre colchetes.
+
+Você é o roteirista do podcast "Camada Zero". Geração de episódio em formato de **conversa entre duas pessoas** (Host A e Host B). Use as fontes adicionadas neste notebook (incluir links/PDFs) para criar um roteiro factual, conciso e verificável.
+
+Requisitos do roteiro:
+- Duração estimada: 6–8 minutos (fala total ≈ 900–1100 palavras).
+- Estrutura:
+  1) [INTRO - 20s] Vinheta curta e saudação (Host A e Host B).
+  2) [NOTÍCIAS - 60–90s] 2–3 itens atuais com citações das fontes (indicar fonte entre parênteses).
+  3) [TEMA PRINCIPAL - 3–4 min] Discussão em formato diálogo (Host A introduz o tema, Host B acrescenta exemplos/práticas, ambos comentam impacto e mitigação).
+  4) [DICAS PRÁTICAS - 60–90s] 3 ações concretas que ouvintes (usuários e pequenas empresas) podem aplicar hoje.
+  5) [ENCERRAMENTO - 20s] Call-to-action (site/links para notas do episódio), próximo episódio e agradecimentos.
+
+- Tom: técnico, porém acessível; leve tom de conversa entre profissionais.
+- Incluir **marcadores de cena** para o vídeo (para cada bloco, escreva 2–3 instruções de imagem/clip que o gerador de vídeo pode usar; ex: “close no host virtual”, “b-roll de linhas de código”, “gráfico de vulnerabilidades aumentando”).
+- Ao final, gere também **uma versão condensada do roteiro em bullets (até 150 palavras)** para usar como descrição do episódio e postagem social.
+- Marque claramente (entre colchetes) o início/fim de cada fala de Host A e Host B.
+
+
+Esse é o prompt “master”. Salve como prompts/roteiro_notebooklm.md.
+
+5) Exemplo condensado de roteiro (episódio piloto — “Patch urgente: o que você precisa saber”)
+
+(Exemplo curto para usar enquanto testa o pipeline.)
+
+[INTRO]
+Host A: “Bem-vindos ao Camada Zero. Eu sou o [Nome].”
+Host B: “Eu sou [Nome]. Hoje: patch urgente e como priorizar atualizações.”
+
+[NOTÍCIAS]
+Host A: “CL0P explorou uma falha no Oracle EBS — ver [The Hacker News / Mandiant].” 
+The Hacker News
+
+Host B: “CISA adicionou 7 vulnerabilidades ao catálogo; verifique seu inventário.” 
+CISA
+
+[TEMA PRINCIPAL]
+Host A: “Como priorizar patches — inventário, exposição pública, criticidade CVSS.”
+Host B: “Ferramentas: EPSS, scanners automáticos e canais de resposta rápida. Exemplo: atualizar Oracle EBS, isolar sistemas afetados.”
+
+[DICAS]
+
+Inventarie ativos críticos e publique SLAs de patch.
+
+Ative MFA e segmentação de rede.
+
+Teste restores de backup semanalmente.
+
+[ENCERRAMENTO]
+Host A: “Notas com links no nosso repo.”
+Host B: “Próximo episódio: segurança em nuvem — comparação de WAFs.”
+
+6) Geração de Áudio / voz (detalhado)
+
+Ferramenta recomendada: ElevenLabs (voz natural em PT-BR). Alternativa: Play.ht, Descript Overdub.
+
+Passo a passo (ElevenLabs)
+
+Crie conta e acesse a área de Text-to-Speech.
+
+Preparar roteiro: use o roteiro exportado do NotebookLM. Separe falas de Host A e Host B em arquivos/sessões diferentes (ou use labels para cada voz).
+
+Nome de arquivo: ep01_roterio_hosts_camadaszero.md
+
+Escolher voz: selecione vozes naturais em PT-BR; se quiser consistência, crie/treine uma voz clonada (Overdub) usando amostra de voz (opcional — atenção a direitos).
+
+Configurações:
+
+Velocidade: 0.95–1.05 (ajuste conforme tom)
+
+Pausas: insira quebras curtas (use SSML <break time="300ms"/> entre blocos)
+
+Entonação: leave default or use SSML prosody if available.
+
+Gerar por blocos:
+
+Gere a narração por blocos: intro, notícias, tema, dicas, encerramento — facilita reedição.
+
+Exportar: baixe em WAV 48kHz/24-bit (melhor qualidade).
+
+Mixagem (Descript/Audacity):
+
+Importar WAVs, adicionar vinheta (3s), ajustar níveis (-3 dB top), inserir trilha de fundo com ducking (reduzir música quando fala).
+
+Normalizar LUFS a -16 dB (padrão podcast) ou -14 dB para plataformas que exigem mais loudness.
+
+Salvar: audio/ep01_camadaxero_final.wav e audio/ep01_camadaxero_final.mp3.
+
+Dica: use two voices com timbres diferentes para Host A e Host B — melhora dinâmica de conversa.
+
+7) Geração de Vídeo (detalhado)
+
+Opções:
+
+Pika Labs / Runway Gen-3 — gerar cenas baseadas em prompts (B-roll, motion).
+
+Synthesia / HeyGen / Elai.io — criar avatar falante (se quiser apresentador virtual).
+
+Descript — compor áudio + imagens e gerar vídeo final (legendas automáticas).
+
+Passo a passo (fluxo recomendado: Pika Labs + Descript)
+
+Preparar roteiro com marcadores de cena (NotebookLM já incluiu). Ex.:
+
+[INTRO] — vinheta + logo animado (3s).
+
+[NEWS: Oracle EBS] — clip: dashboard com alerta, snippet de código, headline.
+
+[DISCUSSÃO] — avatar ou slideshow com bullet points.
+
+Gerar assets visuais:
+
+Para b-roll: cole o prompt de cada cena no Pika Labs (ex: “animated data center dashboard, red alerts flashing, cinematic, 6s”) e gere clipes de 6–10s.
+
+Para avatar: se quiser rosto falando, use Synthesia: crie um avatar, carregue o áudio (voz gerada pela ElevenLabs) ou peça para o avatar usar a voz interna (menos controle).
+
+Importar no Descript:
+
+Crie novo projeto. Importe o áudio final (WAV) e os clipes de Pika Labs/Synthesia.
+
+Alinhe clipes com o áudio usando as sugestões de cena do roteiro.
+
+Gere legendas automaticamente e revise (exportar SRT).
+
+Efeitos & transições:
+
+Inserir vinheta animada (logo), lower thirds com nomes Host A/Host B, e b-roll durante explicações.
+
+Inserir cortes rápidos para manter ritmo (5–8 min total).
+
+Exportar:
+
+MP4 1080p 30fps para YouTube.
+
+Versão vertical 9:16 para TikTok/Reels (opcional, com cortes e captions).
+
+Nomenclatura:
+
+video/ep01_camadaxero_1080p.mp4
+
+video/ep01_camadaxero_9x16.mp4
+
+subs/ep01_camadaxero.srt
+
+8) Geração de Imagens (logo, thumbnail e imagens de apoio)
+
+Ferramenta recomendada: Midjourney (ou Leonardo / Stable Diffusion para licenciamento local).
+
+Prompts para logo / thumbnail (Midjourney)
+
+Logo (símbolo minimalista)
+
+Logo minimalista abstrato para podcast "Camada Zero". Ícone geométrico que remeta a camadas, rede e proteção; estilo flat, vetorial, alta legibilidade em tamanhos pequenos. Paleta: azul petróleo, verde-neon suave, preto. Sem texto. --v 5 --style 4c --quality 2
+
+
+Thumbnail (capa do episódio)
+
+Thumbnail para episódio de podcast "Camada Zero" - episódio 01 "Patch urgente". Mostrar: duas silhuetas estilizadas conversando, fundo com servidor/linhas de código desfocado, overlay de texto "Camada Zero - Ep.01: Patch Urgente". Estilo moderno, contrastes altos, espaço para logotipo no canto inferior direito. Paleta: azul petróleo + verde neon. --ar 16:9 --v 5 --quality 2
+
+Passo a passo
+
+Gere 8 variações; escolha 2–3; refine prompt se necessário.
+
+Exporte PNGs em 3000×3000 para capa e 1920×1080 para thumbnail.
+
+Salve em imagens/logo/ e imagens/thumbnails/.
+
+9) Estrutura de arquivos sugerida (GitHub / local)
+camada-zero-podcast/
+ ┣ prompts/
+ ┃ ┣ roteiro_notebooklm.md
+ ┃ ┣ prompt_resumo_audio.md
+ ┃ ┗ midjourney_prompts.md
+ ┣ notebooklm/
+ ┃ ┗ ep01_sources_links.txt
+ ┣ audio/
+ ┃ ┣ raw/
+ ┃ ┣ final/
+ ┃ ┗ vinhetas/
+ ┣ video/
+ ┃ ┣ raw_clips/
+ ┃ ┗ final/
+ ┣ imagens/
+ ┃ ┣ logo/
+ ┃ ┗ thumbnail/
+ ┣ docs/
+ ┃ ┣ pipeline.md
+ ┃ ┗ README.md
+ ┗ publish/
+   ┣ rss.xml
+   ┗ yt_metadata/
+
+10) Checklist operacional por episódio (passo a passo curto)
+
+Adicionar fontes no NotebookLM (relatórios, feeds, links de notícias acima).
+
+Rodar o prompt de roteiro (colar prompt base). Revisar e ajustar.
+
+Exportar roteiro (formato .md). Separar falas Host A/B.
+
+Gerar vozes em ElevenLabs (um arquivo por bloco). Baixar WAVs.
+
+Mixar áudio em Descript/Audacity. Exportar MP3/WAV.
+
+Gerar clipes visuais em Pika Labs / avatar em Synthesia (usar instruções de cena do roteiro).
+
+Montagem no Descript: alinhar clipes + áudio + legendas. Exportar MP4.
+
+Criar thumbnail em Midjourney. Ajustar no Photoshop/Canva.
+
+Publicar: enviar MP3 ao host de podcast (Feed RSS), enviar MP4 ao YouTube, postar cortes nas redes.
+
+Commit no GitHub: salvar prompts usados, links das fontes, arquivos de metadados.
+
+11) Observações técnicas e recomendações
+
+Verificabilidade: sempre inclua fontes e links no show notes do episódio (NotebookLM facilita gerar as notas).
+
+Automação: scripts para chamar APIs (ElevenLabs, Pika Labs) podem automatizar etapas; guarde chaves em variáveis de ambiente.
+
+Qualidade de voz: é preferível usar ElevenLabs para voz final; NotebookLM “Resumo em áudio” pode servir como rascunho.
+
+Direitos e ética: para voz clonada, tenha permissões; siga leis locais sobre sintetizadores e uso de dados.
+
+Segurança do projeto: guarde chaves e dados sensíveis em vault; se for falar de incidentes, evite reproduzir dados pessoais.
