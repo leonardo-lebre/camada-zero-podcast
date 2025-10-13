@@ -1,0 +1,28 @@
+Ferramenta de Inteligência Artificial (IA) utilizada: Chatgpt
+
+Prompt Inicial:
+
+Me ajude a criar um podcast gerado com IA sobre cyber segurança, com os seguinte parâmetros:
+
+O podcast vai falar sobre dicas e novidades sobre o mundo da cyber segurança e o que está acontecendo no mercado.
+
+{REGRAS}
+
+- Usar o Notebook LM 
+- Criar uma estrutura de GitHub para detalhar todos os prompts usados na criação
+- Criar um nome para o podcast enxuto e "clean" relacionado a cyber segurança, sem ser genérico 
+- O nome deve conter alguma palavra forte que remeta a cyber segurança 
+- Criar imagens para a logo do podcast, relacionada com o nome através de IA e prompst desenvolvidos (midjourney ou outros)
+
+{REGRAS NEGATIIVAS}
+
+- Não quero que o título contenha palavras em inglês 
+- Não quero que utilize nenhuma das palavras nessa lista: Hacker, Vírus, Malware 
+- Não utilize as palavras cyber segurança no nome nem qualquer variação dela
+
+{OBJETIVO FINAL}
+
+Quero que me ajude primeiramente com toda a estrutura geral em volta da criação de um podcast de Cyber Segurança feito inteiramente por IA, usando NotebookLM e outras ferramentas poderosas para deixar o projeto incrível. 
+
+
+
