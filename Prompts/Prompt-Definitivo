@@ -1,0 +1,39 @@
+Ferramenta utilizada (IA): Chatgpt
+
+Prompt-Defintivo:
+
+Monte um fluxo claro e especifico que contenha: 
+
+{REGRAS} 
+
+- Pesquisas e roteiros para adicionar no NotebookLM 
+- Fontes específicas sobre os conteúdos de Cyber Segurança 
+- Noticias relevantes sobre o assunto em questão (Cyber Segurança) 
+- O prompt para gerar o conteúdo deve descrever que o podcast é um conversa entre duas pessoas, sobre o tema apresentado (Cyber Segurança) 
+- Geração de áudio/voz para os textos retirados do NotebookLM 
+- Geração de vídeo e imagens que corroborem com a narrativa do podcast 
+
+Geração de voz: 
+
+{REGRAS} 
+
+- Ferramenta para geração de voz 
+- Descreva o passo a passo para essa geração com base no conteúdo pré-definido 
+
+Geração de Vídeo: 
+
+{REGRAS} 
+
+- Ferramenta para geração de vídeo 
+- Descreva o passo a passo para a geração de vídeo com base no conteúdo pré-definido 
+
+Geração de Imagem: 
+
+{REGRAS} 
+
+- Ferramenta para geração de imagem 
+- Descreva o passo a passo para a geração de imagem com base no conteúdo pré-definido 
+
+Objetivo Final: 
+
+Descrever o fluxo de criação do podcast, com ideias detalhadas sobre Cyber Segurança, um episódio inicial, quais ferramentas usar em cada etapa e o passo a passo para realizar tais processos em cada ferramenta.
