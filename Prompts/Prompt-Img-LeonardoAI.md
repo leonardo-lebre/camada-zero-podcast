@@ -1,0 +1,3 @@
+O promt a seguir foi usado para gerar a imagem de capa do podcast:
+
+Close-up of a sleek, modern podcast microphone, glowing with subtle digital lines and a soft blue light emanating from its base. The microphone is surrounded by abstract, flowing data streams and interconnected network nodes, hinting at secure data flow. In the background, out of focus, a stylized, intricate circuit board pattern extends into the distance, suggesting complex technological infrastructure. The overall aesthetic is clean, sophisticated, and futuristic, emphasizing intelligent design and digital protection. Text overlay (optional in later edits, if supported): "Camada Zero Podcast".
